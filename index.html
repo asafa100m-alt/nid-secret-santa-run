@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --pine:#13203F; --pine2:#1C3A2C; --pine3:#25483A;
+  --pine:#0F2A1F; --pine2:#1C3A2C; --pine3:#25483A;
   --cream:#F5EEDF; --paper:#FBF7EE;
-  --red:#C41E2A; --gold:#F0B83A; --green:#17917B; --green2:#0E6B5A; --holly:#1F7A4A;
+  --red:#C41E2A; --gold:#F0B83A; --green:#1F8A4C; --green2:#14633A; --holly:#1F7A4A;
   --mute-l:#5b6b60; --mute-d:#B9C4BC;
   --disp:"Anton","Noto Sans TC",Arial,sans-serif;
   --body:"Noto Sans TC",-apple-system,Arial,sans-serif;
@@ -283,6 +283,21 @@ footer .fl{color:#EAF8EE}
 .pick input:checked + .box{border-color:#C41E2A}
 footer{background:linear-gradient(180deg,#10224F,#081430);color:#DCE4F5}
 footer .fl{color:#DCE4F5}
+
+/* ── DEEP GREEN GRADIENT（參考圖：深綠漸層暗角＋紅＋金＋白） ── */
+.hero{background:radial-gradient(ellipse 55% 45% at 78% 22%,rgba(240,184,58,.22) 0%,rgba(240,184,58,0) 70%),radial-gradient(ellipse 85% 75% at 50% 40%,#1A5A3E 0%,#0F3D2A 55%,#082419 100%)}
+.block.dark{background:radial-gradient(ellipse 80% 70% at 50% 35%,#1A5A3E 0%,#0F3D2A 60%,#082419 100%)}
+footer{background:radial-gradient(ellipse 80% 120% at 50% 0%,#174F37 0%,#0B2E20 70%,#071C13 100%);color:#DDEBE2}
+footer .fl{color:#DDEBE2}
+.grp{background:rgba(0,0,0,.18);border:2px solid rgba(240,184,58,.5);border-top:8px solid #2FA35E}
+.grp.fun{border-top-color:#E02A36}
+.grp .gn{color:#F0B83A}
+.block.paper{background-color:#FBF7EF}
+.block.cream{background-color:#F5EEDF}
+#register.block.paper{background-color:#FBF7EF}
+.sched{border-color:#0F2A1F}
+.santa-grid .card:not(.red){border-color:#1F8A4C;box-shadow:0 10px 0 #14633A}
+.form-wrap{border-color:#0F2A1F}
 </style>
 </head>
 <body>
@@ -305,8 +320,8 @@ footer .fl{color:#DCE4F5}
     </g>
     <!-- 禮物 -->
     <g transform="translate(120,310)">
-      <rect x="0" y="40" width="150" height="120" rx="8" fill="#17917B" stroke="#F5EEDF" stroke-width="5"/>
-      <rect x="-8" y="20" width="166" height="34" rx="6" fill="#1FA88E" stroke="#F5EEDF" stroke-width="5"/>
+      <rect x="0" y="40" width="150" height="120" rx="8" fill="#1F8A4C" stroke="#F5EEDF" stroke-width="5"/>
+      <rect x="-8" y="20" width="166" height="34" rx="6" fill="#27A05A" stroke="#F5EEDF" stroke-width="5"/>
       <rect x="64" y="20" width="22" height="140" fill="#C41E2A"/>
       <path d="M75 20 C50 -14 20 0 40 18 Z M75 20 C100 -14 130 0 110 18 Z" fill="#F0B83A" stroke="#F5EEDF" stroke-width="4"/>
     </g>
