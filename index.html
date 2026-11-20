@@ -171,11 +171,35 @@ footer a{color:var(--gold)}
   .sched td:first-child{white-space:normal;font-size:15px;width:78px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta{transition:none}}
+
+/* ── CHRISTMAS EXTRAS ── */
+#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+.hero{background:radial-gradient(ellipse 80% 60% at 75% 10%,#2B5A43 0%,rgba(43,90,67,0) 70%),radial-gradient(ellipse 60% 50% at 10% 90%,#1E4231 0%,rgba(30,66,49,0) 70%),linear-gradient(180deg,#0B1D15 0%,var(--pine) 100%);padding-bottom:96px}
+.hero .stars{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1.5px 1.5px at 12% 18%,#fff8 50%,transparent 51%),radial-gradient(1px 1px at 32% 8%,#fff9 50%,transparent 51%),radial-gradient(1.5px 1.5px at 58% 22%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 84% 12%,#fffa 50%,transparent 51%),radial-gradient(1.2px 1.2px at 44% 40%,#fff6 50%,transparent 51%),radial-gradient(1px 1px at 92% 46%,#fff8 50%,transparent 51%),radial-gradient(1.4px 1.4px at 6% 52%,#fff7 50%,transparent 51%)}
+.hero .snowbank{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:70px;display:block;z-index:1}
+.lights{position:relative;height:46px;background:var(--red);overflow:hidden}
+.lights svg{position:absolute;left:0;top:0;width:100%;height:46px}
+.lights .bulb{animation:twinkle 1.6s ease-in-out infinite}
+.lights .bulb:nth-child(3n){animation-delay:.5s}.lights .bulb:nth-child(3n+1){animation-delay:1s}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.35}}
+.facts{background:linear-gradient(180deg,var(--red),#9E1C27);border-bottom:8px solid transparent;border-image:repeating-linear-gradient(-45deg,#fff 0 12px,var(--red) 12px 24px) 8}
+.block.cream,.block.paper{background-image:radial-gradient(circle at 20px 20px,rgba(19,41,31,.05) 2px,transparent 3px);background-size:40px 40px}
+.block.dark{background:radial-gradient(ellipse 70% 40% at 50% 0%,#24503B 0%,rgba(36,80,59,0) 70%),var(--pine)}
+.sec-eyebrow::before{content:"❄ ";}
+.form-wrap{position:relative}
+.form-wrap::before{content:"";position:absolute;left:-4px;right:-4px;top:-4px;height:14px;border-radius:24px 24px 0 0;background:repeating-linear-gradient(-45deg,var(--red) 0 14px,#fff 14px 28px)}
+.form-title::before{content:"🎄 ";}
+.cta{animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:6px 6px 0 var(--gold)}50%{box-shadow:6px 6px 0 var(--gold),0 0 26px rgba(233,185,73,.65)}}
+footer{background:linear-gradient(180deg,var(--pine),#0B1D15)}
+@media (prefers-reduced-motion:reduce){.lights .bulb,.cta{animation:none}#snow{display:none}}
 </style>
 </head>
 <body>
+<canvas id="snow" aria-hidden="true"></canvas>
 
 <header class="hero">
+  <div class="stars" aria-hidden="true"></div>
   <svg class="hero-art" viewBox="0 0 560 520" aria-hidden="true">
     <!-- 聖誕襪 -->
     <g transform="translate(250,40) rotate(12)">
@@ -203,8 +227,10 @@ footer a{color:var(--gold)}
     <a class="cta" id="heroCta" href="#register">立即報名</a>
     <p class="deadline" id="heroDeadline">⏳ 報名至 <b data-close-short>–</b> 截止・<span id="heroSeats">名額 100 人</span></p>
   </div>
+  <svg class="snowbank" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 120 10, 240 55, 380 32 S 640 8, 780 36 S 1040 60, 1180 30 S 1380 18, 1440 34 V70 H0 Z" fill="#F5EEDF"/><path d="M0 52 C 160 34, 300 66, 470 48 S 760 30, 920 52 S 1220 66, 1440 46 V70 H0 Z" fill="#fff" opacity=".9"/></svg>
 </header>
 
+<div class="lights" aria-hidden="true"><svg viewBox="0 0 1440 46" preserveAspectRatio="xMidYMid slice"><path d="M0 8 Q -4 24 20 8 Q 44 4 68 16 Q 92 24 116 8 Q 140 4 164 16 Q 188 24 212 8 Q 236 4 260 16 Q 284 24 308 8 Q 332 4 356 16 Q 380 24 404 8 Q 428 4 452 16 Q 476 24 500 8 Q 524 4 548 16 Q 572 24 596 8 Q 620 4 644 16 Q 668 24 692 8 Q 716 4 740 16 Q 764 24 788 8 Q 812 4 836 16 Q 860 24 884 8 Q 908 4 932 16 Q 956 24 980 8 Q 1004 4 1028 16 Q 1052 24 1076 8 Q 1100 4 1124 16 Q 1148 24 1172 8 Q 1196 4 1220 16 Q 1244 24 1268 8 Q 1292 4 1316 16 Q 1340 24 1364 8 Q 1388 4 1412 16" fill="none" stroke="#13291F" stroke-width="2.5"/><g class="bulb"><rect x="17" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="20" cy="21" rx="6" ry="9" fill="#E9B949"/></g><g class="bulb"><rect x="65" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="68" cy="29" rx="6" ry="9" fill="#3FA34D"/></g><g class="bulb"><rect x="113" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="116" cy="21" rx="6" ry="9" fill="#4FB3FF"/></g><g class="bulb"><rect x="161" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="164" cy="29" rx="6" ry="9" fill="#FF6FB5"/></g><g class="bulb"><rect x="209" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="212" cy="21" rx="6" ry="9" fill="#fff4c2"/></g><g class="bulb"><rect x="257" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="260" cy="29" rx="6" ry="9" fill="#E9B949"/></g><g class="bulb"><rect x="305" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="308" cy="21" rx="6" ry="9" fill="#3FA34D"/></g><g class="bulb"><rect x="353" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="356" cy="29" rx="6" ry="9" fill="#4FB3FF"/></g><g class="bulb"><rect x="401" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="404" cy="21" rx="6" ry="9" fill="#FF6FB5"/></g><g class="bulb"><rect x="449" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="452" cy="29" rx="6" ry="9" fill="#fff4c2"/></g><g class="bulb"><rect x="497" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="500" cy="21" rx="6" ry="9" fill="#E9B949"/></g><g class="bulb"><rect x="545" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="548" cy="29" rx="6" ry="9" fill="#3FA34D"/></g><g class="bulb"><rect x="593" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="596" cy="21" rx="6" ry="9" fill="#4FB3FF"/></g><g class="bulb"><rect x="641" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="644" cy="29" rx="6" ry="9" fill="#FF6FB5"/></g><g class="bulb"><rect x="689" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="692" cy="21" rx="6" ry="9" fill="#fff4c2"/></g><g class="bulb"><rect x="737" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="740" cy="29" rx="6" ry="9" fill="#E9B949"/></g><g class="bulb"><rect x="785" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="788" cy="21" rx="6" ry="9" fill="#3FA34D"/></g><g class="bulb"><rect x="833" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="836" cy="29" rx="6" ry="9" fill="#4FB3FF"/></g><g class="bulb"><rect x="881" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="884" cy="21" rx="6" ry="9" fill="#FF6FB5"/></g><g class="bulb"><rect x="929" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="932" cy="29" rx="6" ry="9" fill="#fff4c2"/></g><g class="bulb"><rect x="977" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="980" cy="21" rx="6" ry="9" fill="#E9B949"/></g><g class="bulb"><rect x="1025" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="1028" cy="29" rx="6" ry="9" fill="#3FA34D"/></g><g class="bulb"><rect x="1073" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="1076" cy="21" rx="6" ry="9" fill="#4FB3FF"/></g><g class="bulb"><rect x="1121" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="1124" cy="29" rx="6" ry="9" fill="#FF6FB5"/></g><g class="bulb"><rect x="1169" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="1172" cy="21" rx="6" ry="9" fill="#fff4c2"/></g><g class="bulb"><rect x="1217" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="1220" cy="29" rx="6" ry="9" fill="#E9B949"/></g><g class="bulb"><rect x="1265" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="1268" cy="21" rx="6" ry="9" fill="#3FA34D"/></g><g class="bulb"><rect x="1313" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="1316" cy="29" rx="6" ry="9" fill="#4FB3FF"/></g><g class="bulb"><rect x="1361" y="8" width="6" height="6" fill="#13291F"/><ellipse cx="1364" cy="21" rx="6" ry="9" fill="#FF6FB5"/></g><g class="bulb"><rect x="1409" y="16" width="6" height="6" fill="#13291F"/><ellipse cx="1412" cy="29" rx="6" ry="9" fill="#fff4c2"/></g></svg></div>
 <div class="facts">
   <div class="wrap facts-grid">
     <div class="fact"><p class="k">DATE</p><p class="v">12/6（日）</p><p class="s">2026 年</p></div>
@@ -698,6 +724,41 @@ footer a{color:var(--gold)}
       showAlert("連線失敗", "網路或伺服器出了點狀況，<b>這次沒有送出</b>。<br />請稍後再試一次，或到 " + lineLink + " 私訊小編。");
     });
   });
+})();
+</script>
+<script>
+(function () {
+  var c = document.getElementById("snow");
+  if (!c || !c.getContext) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var ctx = c.getContext("2d"), W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), flakes = [];
+  function size() {
+    W = window.innerWidth; H = window.innerHeight;
+    c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(110, W * H / 12000));
+    while (flakes.length < n) flakes.push(make(true));
+    flakes.length = n;
+  }
+  function make(any) {
+    return { x: Math.random() * W, y: any ? Math.random() * H : -10, r: 1 + Math.random() * 2.6,
+             vy: .4 + Math.random() * 1.1, vx: -.3 + Math.random() * .6, ph: Math.random() * 6.28, a: .55 + Math.random() * .45 };
+  }
+  var run = true;
+  document.addEventListener("visibilitychange", function () { run = !document.hidden; if (run) requestAnimationFrame(tick); });
+  function tick() {
+    if (!run) return;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < flakes.length; i++) {
+      var f = flakes[i];
+      f.ph += .015; f.y += f.vy; f.x += f.vx + Math.sin(f.ph) * .35;
+      if (f.y > H + 10 || f.x < -10 || f.x > W + 10) { flakes[i] = make(false); continue; }
+      ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.283);
+      ctx.fillStyle = "rgba(255,255,255," + f.a + ")"; ctx.shadowColor = "rgba(19,41,31,.25)"; ctx.shadowBlur = 2; ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  window.addEventListener("resize", size);
+  size(); requestAnimationFrame(tick);
 })();
 </script>
 </body>
